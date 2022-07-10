@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useFetch = (url) => {
-  const [blogs, setBlogs] = useState(null);
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -14,7 +14,7 @@ const useFetch = (url) => {
         return res.json();
       })
       .then((data) => {
-        setBlogs(data);
+        setData(data);
         setIsLoading(false);
         setError(null);
       })
@@ -24,7 +24,7 @@ const useFetch = (url) => {
       });
   }, [url]);
 
-  return { blogs, isLoading, error };
+  return { data, isLoading, error };
 };
 
 export default useFetch;
